@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Dapr.Client;
+using System.Threading.Tasks;
 
 namespace BuildService.Controllers
 {
@@ -15,9 +17,10 @@ namespace BuildService.Controllers
         }
 
         [HttpPost]
-        public ActionResult Webhook()
+        public async Task<ActionResult> Webhook([FromServices] DaprClient daprClient)
         {
             // Convert json to event and publish to topic using dapr
+            await daprClient.PublishEventAsync("pubsub", "asdf");
             return Ok();
         }
     }
