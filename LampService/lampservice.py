@@ -15,5 +15,5 @@ def subscribe():
 @app.route('/buildname', methods=['POST'])
 def buildname_subscriber():
     ##Change state and lamp here
-
+    return json.dumps({'success':True}), 200, {'ContentType':'application/json'} 
 app.run()
