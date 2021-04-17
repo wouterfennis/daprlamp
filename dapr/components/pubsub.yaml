@@ -1,11 +1,11 @@
 apiVersion: dapr.io/v1alpha1
 kind: Component
 metadata:
-  name: servicebus-pubsub
+  name: pubsub
   namespace: default
 spec:
   type: pubsub.azure.servicebus
   version: v1
   metadata:
   - name: connectionString
-    value: "Endpoint=sb://{ServiceBusNamespace}.servicebus.windows.net/;SharedAccessKeyName={PolicyName};SharedAccessKey={Key};EntityPath={ServiceBus}"
+    value: "Endpoint=sb://daprhack.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=KXyr1BwTD944MfGxKaQ2eM4/A7m3OSIOUy0N47P3dNo=;EntityPath=asdf"

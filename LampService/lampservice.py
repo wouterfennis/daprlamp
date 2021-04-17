@@ -7,13 +7,14 @@ import sys
 app = flask.Flask(__name__)
 CORS(app)
 
-@app.route('/dapr/subscribe', methods=['GET'])
-def subscribe():
-    subscriptions = [{'pubsubname': 'pubsub', 'topic': 'buildname', 'route': 'buildname'}]
-    return jsonify(subscriptions)
+# @app.route('/dapr/subscribe', methods=['GET'])
+# def subscribe():
+#     subscriptions = [{'pubsubname': 'pubsub', 'topic': 'asdf', 'route': 'buildname'}]
+#     return jsonify(subscriptions)
 
 @app.route('/buildname', methods=['POST'])
 def buildname_subscriber():
     ##Change state and lamp here
+    print("Received Event")
     return json.dumps({'success':True}), 200, {'ContentType':'application/json'} 
 app.run()

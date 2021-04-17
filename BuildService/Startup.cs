@@ -25,6 +25,9 @@ namespace BuildService
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BuildService", Version = "v1" });
             });
+
+            services.AddDaprClient(builder => builder
+                .UseHttpEndpoint($"http://localhost:3600"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -4,7 +4,7 @@ DAPR Hackathon project to change the status of a lamp based on a build status
 ## BuildService
 ASP.NET Core Web API with a webhook to receive a build status and publish an event to the corresponding topic
 To run execute the following command in the BuildService folder:
-`dapr run --app-id buildservice --components-path ../dapr/components dotnet run`
+`dapr run --app-id buildservice --dapr-http-port 3600 --components-path ../dapr/components dotnet run`
 
 ## LampService
 Python Web API with an endpoint to change the status of a lamp
