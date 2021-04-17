@@ -1,0 +1,21 @@
+name: Continuous Integration Pull Request
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Restore dependencies of project
+      run: dotnet restore ./BuildService/BuildService.csproj
+    - name: Build project
+      run: dotnet build ./BuildService/BuildService.csproj --no-restore --configuration Release
