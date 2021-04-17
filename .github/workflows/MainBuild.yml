@@ -16,6 +16,6 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: Restore dependencies of project
-      run: dotnet .restore ./BuildService/BuildService.csproj
+      run: dotnet restore ./BuildService/BuildService.csproj
     - name: Build project
       run: dotnet build ./BuildService/BuildService.csproj --no-restore --configuration Release
